@@ -5,12 +5,15 @@ import PlotFigure from "../../components/PlotFigure.astro";
 import penguins from "../../data/penguins.json";
 ---
 
-<Layout title="Les manchots Adelie" description="Les manchots Adelie selon leur sexe.">
-  <h1>Les manchots Adelie</h1>
+<Layout
+  title="Les manchots papou"
+  description="Les manchots papou selon leur sexe."
+>
+  <h1>Les manchots papou</h1>
   <p>
-    Voici la différence de taille des nageoires des manchots Adélie selon leur
-    sexe. 
-    <br/>La différence est subtile, on retrouve des valeurs équivalentes.
+    Voici la différence de taille des nageoires des manchots papou selon
+    leur sexe.
+    <br />La différence est un peu plus marquée, les femelles ont tendance à en avoir de plus grosses.
   </p>
   <h3>Manchots mâles</h3>
   <PlotFigure
@@ -18,7 +21,8 @@ import penguins from "../../data/penguins.json";
       marks: [
         Plot.dot(
           penguins.filter(
-            (penguin) => penguin.species === "Adelie" && penguin.sex === "MALE",
+            (penguin) =>
+              penguin.species === "Gentoo" && penguin.sex === "MALE",
           ),
           { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "purple" },
         ),
@@ -32,7 +36,7 @@ import penguins from "../../data/penguins.json";
         Plot.dot(
           penguins.filter(
             (penguin) =>
-              penguin.species === "Adelie" && penguin.sex === "FEMALE",
+              penguin.species === "Gentoo" && penguin.sex === "FEMALE",
           ),
           { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "orange" },
         ),

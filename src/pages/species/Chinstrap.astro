@@ -5,12 +5,15 @@ import PlotFigure from "../../components/PlotFigure.astro";
 import penguins from "../../data/penguins.json";
 ---
 
-<Layout title="Les manchots Adelie" description="Les manchots Adelie selon leur sexe.">
-  <h1>Les manchots Adelie</h1>
+<Layout
+  title="Les manchots à jugulaire"
+  description="Les manchots à jugulaire selon leur sexe."
+>
+  <h1>Les manchots à jugulaire</h1>
   <p>
-    Voici la différence de taille des nageoires des manchots Adélie selon leur
-    sexe. 
-    <br/>La différence est subtile, on retrouve des valeurs équivalentes.
+    Voici la différence de taille des nageoires des manchots à jugulaire selon
+    leur sexe.
+    <br />La différence est subtile, on retrouve des valeurs équivalentes.
   </p>
   <h3>Manchots mâles</h3>
   <PlotFigure
@@ -18,7 +21,8 @@ import penguins from "../../data/penguins.json";
       marks: [
         Plot.dot(
           penguins.filter(
-            (penguin) => penguin.species === "Adelie" && penguin.sex === "MALE",
+            (penguin) =>
+              penguin.species === "Chinstrap" && penguin.sex === "MALE",
           ),
           { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "purple" },
         ),
@@ -32,7 +36,7 @@ import penguins from "../../data/penguins.json";
         Plot.dot(
           penguins.filter(
             (penguin) =>
-              penguin.species === "Adelie" && penguin.sex === "FEMALE",
+              penguin.species === "Chinstrap" && penguin.sex === "FEMALE",
           ),
           { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "orange" },
         ),

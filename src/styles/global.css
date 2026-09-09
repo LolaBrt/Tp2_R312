@@ -18,7 +18,7 @@
     }
 
     h1 {
-        @apply text-4xl font-display leading-tight lg:text-6xl text-indigo;
+        @apply text-4xl font-display leading-tight lg:text-6xl text-indigo pb-20;
     }
 
     h2 {
