@@ -47,3 +47,32 @@
         @apply max-lg:stroke-white;
     }
 }
+
+.species-menu {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.species-menu a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 1rem;
+}
+
+.species-menu a:hover {
+    color: var(--color-pink);
+}

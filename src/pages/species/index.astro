@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import * as Plot from "@observablehq/plot";
+import PlotFigure from "../../components/PlotFigure.astro";
+import penguins from "../../data/penguins.json";
+---
+
+<Layout title="Les manchots" description="Vue d'ensemble">
+  <h1>Les manchots</h1>
+
+  <nav class="species-menu text-indigo-300" aria-label="Choisir une espèce">
+    <a  href="#adelie">Manchots Adélie</a>
+    <a  href="#chinstrap">Manchots à jugulaire</a>
+    <a  href="#gentoo">Manchots papou</a>
+  </nav>
+
+  <div class="slider">
+    <section id="adelie" class="slide">
+      <h2>Manchots Adélie</h2>
+      <PlotFigure
+        options={{
+          color: {
+            legend: true,
+            domain: ["MALE", "FEMALE"],
+            range: ["purple", "orange"],
+          },
+          marks: [
+            Plot.dot(
+              penguins.filter((penguin) => penguin.species === "Adelie"),
+              { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "sex" },
+            ),
+          ],
+        }}
+      />
+      <a
+        class="my-2 rounded-lg inline-block bg-indigo-300 px-2 py-2 text-indigo hover:text-orange-100"
+        href="/species/Adelie">Voir plus</a
+      >
+    </section>
+
+    <section id="chinstrap" class="slide">
+      <h2>Manchots à jugulaire</h2>
+      <PlotFigure
+        options={{
+          color: {
+            legend: true,
+            domain: ["MALE", "FEMALE"],
+            range: ["purple", "orange"],
+          },
+          marks: [
+            Plot.dot(
+              penguins.filter((penguin) => penguin.species === "Chinstrap"),
+              { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "sex" },
+            ),
+          ],
+        }}
+      />
+      <a
+        class="my-2 rounded-lg inline-block bg-indigo-300 px-2 py-2 text-indigo hover:text-orange-100"
+        href="/species/Chinstrap">Voir plus</a
+      >
+    </section>
+
+    <section id="gentoo" class="slide">
+      <h2>Manchots papou</h2>
+      <PlotFigure
+        options={{
+          color: {
+            legend: true,
+            domain: ["MALE", "FEMALE"],
+            range: ["purple", "orange"],
+          },
+          marks: [
+            Plot.dot(
+              penguins.filter((penguin) => penguin.species === "Gentoo"),
+              { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "sex" },
+            ),
+          ],
+        }}
+      />
+      <a
+        class="my-2 rounded-lg inline-block bg-indigo-300 px-2 py-2 text-indigo hover:text-orange-100"
+        href="/species/Gentoo">Voir plus</a
+      >
+    </section>
+  </div>
+</Layout>
