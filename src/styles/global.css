@@ -1,1 +1,49 @@
 @import "tailwindcss";
+
+@theme {
+    --font-sans: 'Manrope Variable', sans-serif;
+    --font-display: 'Oi', system-ui;
+
+    --color-indigo: oklch(26.53% 0.1502 278.05);
+    /* #1d096b */
+    --color-pink: oklch(82.94% 0.1209 30.54);
+    /* #feaa9b */
+
+    --my-grid: repeat(12, minmax(0, 64px));
+}
+
+@layer base {
+    body {
+        @apply font-sans text-base leading-normal;
+    }
+
+    h1 {
+        @apply text-4xl font-display leading-tight lg:text-6xl text-indigo;
+    }
+
+    h2 {
+        @apply text-2xl font-sans font-extrabold leading-tight lg:text-4xl;
+    }
+
+    h3 {
+        @apply text-xl font-sans font-bold uppercase leading-tight my-4 text-indigo-300;
+    }
+
+    ::selection {
+        @apply bg-(--color-pink);
+    }
+}
+
+@layer components {
+    .grille {
+        @apply px-6 lg:grid lg:grid-cols-(--my-grid) lg:justify-center lg:gap-12;
+    }
+
+    header.bg-white #menu-btn[aria-expanded="false"]>span {
+        @apply !bg-black;
+    }
+
+    header:not(.bg-white) button[aria-label="Recherche"]>svg>* {
+        @apply max-lg:stroke-white;
+    }
+}
