@@ -5,38 +5,32 @@ import PlotFigure from "../../components/PlotFigure.astro";
 import penguins from "../../data/penguins.json";
 ---
 
-<Layout title="Les manchots Adelie" description="Les manchots Adelie selon leur sexe.">
+<Layout
+  title="Les manchots Adelie"
+  description="Les manchots Adelie selon leur sexe."
+>
   <h1>Les manchots Adelie</h1>
-  <p>
+  <p class="pb-10">
     Voici la différence de taille des nageoires des manchots Adélie selon leur
-    sexe. 
-    <br/>La différence est subtile, on retrouve des valeurs équivalentes.
+    sexe.
+    <br />La différence est subtile mais les mâles ont tendance plus
+    conséquentes.
   </p>
-  <h3>Manchots mâles</h3>
-  <PlotFigure
-    options={{
-      marks: [
-        Plot.dot(
-          penguins.filter(
-            (penguin) => penguin.species === "Adelie" && penguin.sex === "MALE",
+  <section id="adelie">
+    <PlotFigure
+      options={{
+        color: {
+          legend: true,
+          domain: ["MALE", "FEMALE"],
+          range: ["purple", "orange"],
+        },
+        marks: [
+          Plot.dot(
+            penguins.filter((penguin) => penguin.species === "Adelie"),
+            { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "sex" },
           ),
-          { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "purple" },
-        ),
-      ],
-    }}
-  />
-  <h3>Manchots femelles</h3>
-  <PlotFigure
-    options={{
-      marks: [
-        Plot.dot(
-          penguins.filter(
-            (penguin) =>
-              penguin.species === "Adelie" && penguin.sex === "FEMALE",
-          ),
-          { x: "culmen_length_mm", y: "culmen_depth_mm", stroke: "orange" },
-        ),
-      ],
-    }}
-  />
+        ],
+      }}
+    />
+  </section>
 </Layout>
