@@ -1,0 +1,53 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import * as Plot from "@observablehq/plot";
+import PlotFigure from "../../components/PlotFigure.astro";
+import pizzas from "../../data/pizzas.json";
+---
+
+<Layout title="Les pizzas" description="Vue d'ensemble">
+  <h1>Les pizzas</h1>
+
+  <nav class="menu text-indigo-300" aria-label="Choisir un paramètre">
+    <a href="#revenus">Les revenus</a>
+    <a href="#commande">Les commandes</a>
+  </nav>
+
+  <div class="slider">
+    <section id="revenus" class="slide">
+      <h2>Les revenus</h2>
+      <PlotFigure
+        options={{
+          marks: [
+            Plot.dot(
+              pizzas.filter((pizzas) => pizzas.revenue >= 100),
+              { x: "revenue", y: "store_id", stroke: "revenue" },
+            ),
+          ],
+        }}
+      />
+      <a
+        class="my-2 rounded-lg inline-block bg-indigo-300 px-2 py-2 text-indigo hover:text-orange-100"
+        href="/pizzas/revenus">Voir plus</a
+      >
+    </section>
+
+    <section id="commande" class="slide">
+      <h2>Les commandes</h2>
+      <PlotFigure
+        options={{
+          marks: [
+            Plot.dot(
+              pizzas.filter((pizzas) => pizzas.revenue >= 100),
+              { x: "orders", y: "store_id", stroke: "orders" },
+            ),
+          ],
+        }}
+      />
+      <a
+        class="my-2 rounded-lg inline-block bg-indigo-300 px-2 py-2 text-indigo hover:text-orange-100"
+        href="/pizzas/commande">Voir plus</a
+      >
+    </section>
+  </div>
+</Layout>

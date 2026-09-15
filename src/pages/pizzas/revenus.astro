@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import * as Plot from "@observablehq/plot";
+import PlotFigure from "../../components/PlotFigure.astro";
+import pizzas from "../../data/pizzas.json";
+---
+
+<Layout
+  title="Les revenus de vente de pizzas"
+  description="Les revenus de vente de pizzas."
+>
+  <h1>Les revenus de vente de pizzas supérieurs à 100</h1>
+  <p class="pb-10">
+    On peut lire ici quelles boutiques vendent le plus de pizza.
+    <br />Ce serait plus intéressant si on pouvait identifier les boutiques, mais bon.
+  </p>
+  <section id="revenus">
+    <PlotFigure
+      options={{
+        marks: [
+          Plot.dot(
+            pizzas.filter((pizzas) => pizzas.revenue >= 100),
+            { x: "revenue", y: "store_id", stroke: "revenue" },
+          ),
+        ],
+      }}
+    />
+  </section>
+</Layout>
