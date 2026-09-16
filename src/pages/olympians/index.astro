@@ -6,15 +6,15 @@ import olympians from "../../data/olympians.json";
 ---
 
 <Layout title="Les JO" description="Vue d'ensemble">
-  <h1>Les pizzas</h1>
+  <h1>Les JO</h1>
 
   <nav class="menu text-indigo-300" aria-label="Choisir un paramètre">
-    <a href="#revenus">Les hommes</a>
-    <a href="#commande">Les femmes</a>
+    <a href="#men">Les hommes</a>
+    <a href="#women">Les femmes</a>
   </nav>
 
   <div class="slider">
-    <section id="revenus" class="slide">
+    <section id="men" class="slide">
       <h2>Les hommes</h2>
       <PlotFigure
         options={{
@@ -33,7 +33,7 @@ import olympians from "../../data/olympians.json";
       >
     </section>
 
-    <section id="commande" class="slide">
+    <section id="women" class="slide">
       <h2>Les femmes</h2>
       <PlotFigure
         options={{
